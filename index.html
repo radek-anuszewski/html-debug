@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<div>
+  <button id="remove">Remove element</button>
+  <button id="add-class">Add class to element</button>
+  <button id="add-content">Add content to element</button>
+</div>
+<div id="element">
+  <p>
+    Child
+  </p>
+</div>
+<script>
+  const element = document.querySelector('#element');
+
+  document.querySelector('#add-content').addEventListener('click', () => {
+    const child = document.createElement('p');
+    child.innerHTML = 'Child';
+    element.appendChild(child);
+  });
+
+  document.querySelector('#add-class').addEventListener('click', () => {
+    element.classList.add(`some-class${new Date().getTime()}`);
+  });
+
+  document.querySelector('#remove').addEventListener('click', () => {
+    element.parentElement.removeChild(element);
+  });
+</script>
+</body>
+</html>
